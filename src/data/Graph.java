@@ -18,7 +18,11 @@ public class Graph {
 		return graph.length;
 	}
 	public void addEdge(int from, int to){
-		this.edgeList.add(new Edge(graph[from], graph[to]));
+		int min=Math.min(from, to);
+		int max=Math.max(from, to);
+		this.edgeList.add(new Edge(graph[min], graph[max]));
+		this.graph[from].addEdge(to);
+		this.graph[to].addEdge(from);
 		Collections.sort(edgeList);
 	}	
 	public Vertex getVertex(Integer num){

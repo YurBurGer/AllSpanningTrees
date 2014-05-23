@@ -5,8 +5,10 @@ public class Edge implements Comparable<Edge>{
 
 	public Edge(Vertex v1, Vertex v2) {
 		super();
-		this.v1 = v1;
-		this.v2 = v2;
+		Vertex min=v1.getNum()<v2.getNum()?v1:v2;
+		Vertex max=v1.getNum()>v2.getNum()?v1:v2;
+		this.v1 = min;
+		this.v2 = max;
 	}
 	public Vertex getV1() {
 		return v1;
@@ -16,7 +18,7 @@ public class Edge implements Comparable<Edge>{
 	}
 	@Override
 	public int compareTo(Edge o) {
-		return v1.compareTo(o.v1)==0?v2.compareTo(o.v2):v1.compareTo(v2);
+		return v1.getNum()==o.v1.getNum()?v2.getNum()-o.v2.getNum():v1.getNum()-o.v1.getNum();		
 	}
 	@Override
 	public int hashCode() {

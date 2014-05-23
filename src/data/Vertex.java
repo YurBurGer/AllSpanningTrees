@@ -31,7 +31,7 @@ public class Vertex implements Comparable<Vertex>{
 	}
 	@Override
 	public int compareTo(Vertex arg0) {
-		return Integer.compare(num, arg0.num);
+		return num-arg0.num;
 	}
 	public boolean addEdge(int e){
 		return edges.add(e);		
@@ -61,5 +61,9 @@ public class Vertex implements Comparable<Vertex>{
 	}	
 	public ArrayList<Integer> getEdges(){
 		return edges;
+	}
+	@Override
+	public String toString() {
+		return "Vertex [num=" + num + ", r=" + r + ", p=" + p + "]";
 	}
 }
